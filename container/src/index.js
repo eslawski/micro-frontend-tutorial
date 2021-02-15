@@ -1,1 +1,1 @@
-console.log("boom");
+import("./bootstrap");
