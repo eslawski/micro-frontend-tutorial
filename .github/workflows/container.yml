@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+    # Only trigger action on changes that occur in this directory (on push)
     paths:
       - "part-2/container/**"
 
