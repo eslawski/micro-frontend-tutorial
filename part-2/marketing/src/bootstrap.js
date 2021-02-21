@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from "./App";
-import { createMemoryHistory } from "history";
+import { createMemoryHistory, createBrowserHistory } from "history";
 
-const mount = (element, { onNavigate }) => {
-    const history = createMemoryHistory();
+const mount = (element, { onNavigate, devHistory }) => {
+    const history = devHistory || createMemoryHistory();
 
     if (onNavigate) {
         // History will automatically call onNavigate when it notices a change to the history we are using here in MarketingApp
@@ -32,7 +32,9 @@ const mount = (element, { onNavigate }) => {
 if (process.env.NODE_ENV === "development") {
     const devRoot = document.querySelector("#_marketing-dev-root");
     if (devRoot) {
-        mount(devRoot, {});
+        mount(devRoot, {
+            devHistory: createBrowserHistory()
+        });
     }
 }
 
