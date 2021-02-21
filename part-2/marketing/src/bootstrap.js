@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from "./App";
+import { createMemoryHistory } from "history";
 
-const mount = (element) => {
+const mount = (element, { onNavigate }) => {
+    const history = createMemoryHistory();
+
+    // History will automatically call onNavigate when it notices a change to the history we are using here in MarketingApp
+    history.listen(onNavigate);
+
     ReactDOM.render(
-        <App/>,
+        <App history={history} />,
         element
     )
 }
