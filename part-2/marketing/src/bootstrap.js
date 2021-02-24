@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import App from "./App";
 import { createMemoryHistory, createBrowserHistory } from "history";
 
-const mount = (element, { onNavigate, devHistory }) => {
-    const history = devHistory || createMemoryHistory();
+const mount = (element, { onNavigate, devHistory, initialPath }) => {
+    const history = devHistory || createMemoryHistory({
+        initialEntries: [initialPath]
+    });
 
     if (onNavigate) {
         // History will automatically call onNavigate when it notices a change to the history we are using here in MarketingApp
