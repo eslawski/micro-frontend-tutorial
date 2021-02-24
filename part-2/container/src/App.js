@@ -1,5 +1,6 @@
 import React, {lazy, Suspense } from "react";
 import Header from "./components/Header";
+import Progress from "./components/Progress";
 
 const MarketingLazy = lazy(() => import("./components/MarketingApp"))
 const AuthLazy = lazy(() => import("./components/AuthApp"))
@@ -16,7 +17,7 @@ export default () => {
             <BrowserRouter>
                 <div>
                     <Header />
-                    <Suspense fallback={<div>loading...</div>}>
+                    <Suspense fallback={<Progress />}>
                         <Switch>
                             <Route path="/auth" component={AuthLazy} />
                             <Route path="/" component={MarketingLazy} />
