@@ -1,17 +1,10 @@
 import { createApp } from "vue";
 import Dashboard from "./components/Dashboard";
 
-const mount = (element, { onNavigate, onAuthChange, devHistory, initialPath }) => {
-
+// Dashboard doesn't have any of the fancy navigation stuff our other apps had
+const mount = (element) => {
     const app = createApp(Dashboard);
     app.mount(element); // This mount function is Vue NOT our other mount function.
-
-    return {
-        onParentNavigate({ pathname: nextPathname}) {
-            console.log("Don't really need for dashbaord");
-        }
-    }
-
 };
 
 // Situation 1 (see comment in part-1/products)
