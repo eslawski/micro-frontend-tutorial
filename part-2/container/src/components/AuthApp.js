@@ -15,6 +15,9 @@ export default () => {
                 if (pathname !== nextPathName) {
                     history.push(nextPathName);
                 }
+            },
+            onAuthChange: () => {
+                console.log("auth changed");
             }
         });
 
